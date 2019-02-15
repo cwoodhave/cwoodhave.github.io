@@ -37,12 +37,10 @@
         <v-tabs
                 slot="extension"
                 v-model="tab"
-                color="cyan"
-                slider-color="yellow"
+                color="teal lighten-2"
+                slider-color="amber"
                 grow
         >
-            <v-tabs-slider color="yellow"></v-tabs-slider>
-
             <v-tab
                     v-for="item in navbar"
                     :key="item.tab"
@@ -80,8 +78,35 @@
                     <v-tab-item
                             value="experience"
                     >
-                        <v-card flat>
-                            <v-card-text>Work Experience</v-card-text>
+                        <v-card flat class="pa-3">
+                            <v-img src="./images/wsu_logo.png" max-height="50px" position="left center" contain></v-img>
+                            <v-card-title primary-title class="text-xs-center">
+                                <div>
+                                    <h3 class="headline">Weber State University</h3>
+                                    <v-subheader>April 2010 to Present - Ogden, Utah</v-subheader>
+                                </div>
+                            </v-card-title>
+                            <v-card-text>Projects</v-card-text>
+                            <v-expansion-panel>
+                                <v-expansion-panel-content >
+                                    <div slot="header">ALBOP</div>
+                                    <v-card>
+                                        <v-card-text>Online web portal using Vue js and Nodejs/ Express</v-card-text>
+                                    </v-card>
+                                </v-expansion-panel-content>
+                                <v-expansion-panel-content >
+                                    <div slot="header">OBD Clearinghouse</div>
+                                    <v-card>
+                                        <v-card-text>Java Project funded by EPA website: <a href="https://www.obdclearinghouse.com" target="_blank">OBD Clearinghouse</a></v-card-text>
+                                    </v-card>
+                                </v-expansion-panel-content>
+                                <v-expansion-panel-content >
+                                    <div slot="header">Centralized I/M Reports Database</div>
+                                    <v-card>
+                                        <v-card-text>Centralized database for 5 emissions counties and Utah DMV</v-card-text>
+                                    </v-card>
+                                </v-expansion-panel-content>
+                            </v-expansion-panel>
                         </v-card>
                     </v-tab-item>
                     <v-tab-item
