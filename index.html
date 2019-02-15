@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+<div id="app">
+    <v-toolbar tabs dark color="blue-grey darken-3">
+
+        <v-toolbar-title>Christopher Woodhave</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <!--<v-toolbar-items class="hidden-sm-and-down">-->
+            <!--<v-btn-->
+                    <!--v-for="item in navbar"-->
+                    <!--:key="item.title"-->
+                    <!--:href="item.link"-->
+                    <!--flat-->
+            <!--&gt;{{ item.title }}</v-btn>-->
+        <!--</v-toolbar-items>-->
+        <!--<v-menu class="hidden-md-and-up">-->
+            <!--<v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>-->
+            <!--<v-list>-->
+                <!--<v-list-tile-->
+                        <!--v-for="item in navbar"-->
+                        <!--:key="item.title"-->
+                        <!--:href="item.link"-->
+                <!--&gt;-->
+                    <!--<v-list-tile-content>-->
+                        <!--<v-list-tile-title>{{ item.title }}</v-list-tile-title>-->
+                    <!--</v-list-tile-content>-->
+                <!--</v-list-tile>-->
+            <!--</v-list>-->
+        <!--</v-menu>-->
+        <v-tabs
+                slot="extension"
+                v-model="tab"
+                color="cyan"
+                slider-color="yellow"
+                grow
+        >
+            <v-tabs-slider color="yellow"></v-tabs-slider>
+
+            <v-tab
+                    v-for="item in navbar"
+                    :key="item.tab"
+                    :href="`#${item.tab}`"
+            >
+                {{ item.title }}
+            </v-tab>
+        </v-tabs>
+    </v-toolbar>
+    <v-app>
+        <v-content>
+            <v-container>
+                <v-tabs-items v-model="tab">
+                    <v-tab-item
+                            value="home"
+                    >
+                        <v-card flat>
+                            <v-card-text>Home Tab stuff</v-card-text>
+                        </v-card>
+                    </v-tab-item>
+                    <v-tab-item
+                            value="skills"
+                    >
+                        <v-card flat>
+                            <v-card-text>Skills Tab</v-card-text>
+                        </v-card>
+                    </v-tab-item>
+                    <v-tab-item
+                            value="education"
+                    >
+                        <v-card flat>
+                            <v-card-text>My Education</v-card-text>
+                        </v-card>
+                    </v-tab-item>
+                    <v-tab-item
+                            value="experience"
+                    >
+                        <v-card flat>
+                            <v-card-text>Work Experience</v-card-text>
+                        </v-card>
+                    </v-tab-item>
+                    <v-tab-item
+                            value="about"
+                    >
+                        <v-card flat>
+                            <v-card-text>About Me</v-card-text>
+                        </v-card>
+                    </v-tab-item>
+                </v-tabs-items>
+            </v-container>
+        </v-content>
+    </v-app>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data () {
+            return {
+                tab: 'home',
+                navbar: [
+                    { title: 'Home', tab: 'home'},
+                    { title: 'Skills', tab: 'skills'},
+                    { title: 'Education', tab: 'education'},
+                    { title: 'Work Experience', tab: 'experience'},
+                    { title: 'About Me', tab: 'about'}
+                ]
+            }
+        }
+    })
+</script>
+</body>
+</html>
