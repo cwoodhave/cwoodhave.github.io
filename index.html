@@ -12,28 +12,6 @@
 
         <v-toolbar-title>Christopher Woodhave</v-toolbar-title>
         <v-spacer></v-spacer>
-        <!--<v-toolbar-items class="hidden-sm-and-down">-->
-            <!--<v-btn-->
-                    <!--v-for="item in navbar"-->
-                    <!--:key="item.title"-->
-                    <!--:href="item.link"-->
-                    <!--flat-->
-            <!--&gt;{{ item.title }}</v-btn>-->
-        <!--</v-toolbar-items>-->
-        <!--<v-menu class="hidden-md-and-up">-->
-            <!--<v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>-->
-            <!--<v-list>-->
-                <!--<v-list-tile-->
-                        <!--v-for="item in navbar"-->
-                        <!--:key="item.title"-->
-                        <!--:href="item.link"-->
-                <!--&gt;-->
-                    <!--<v-list-tile-content>-->
-                        <!--<v-list-tile-title>{{ item.title }}</v-list-tile-title>-->
-                    <!--</v-list-tile-content>-->
-                <!--</v-list-tile>-->
-            <!--</v-list>-->
-        <!--</v-menu>-->
         <v-tabs
                 slot="extension"
                 v-model="tab"
@@ -57,36 +35,67 @@
                     <v-tab-item
                             value="home"
                     >
-                        <v-card flat>
+                        <v-card flat class="pa-3">
+                            <h1 class="text-xs-center mb-4">Home</h1>
                             <v-card-text>Home Tab stuff</v-card-text>
                         </v-card>
                     </v-tab-item>
                     <v-tab-item
                             value="skills"
                     >
-                        <v-card flat>
-                            <v-card-text>Skills Tab</v-card-text>
+                        <v-card flat class="pa-3">
+                            <h1 class="text-xs-center mb-4">Programming Skills</h1>
+                            <h3><v-icon>language</v-icon> Languages</h3>
+                            <v-card-text>Java</v-card-text>
+                            <h3><v-icon>computer</v-icon> Systems</h3>
+                            <v-card-text>Git</v-card-text>
                         </v-card>
                     </v-tab-item>
                     <v-tab-item
                             value="education"
                     >
-                        <v-card flat>
-                            <v-card-text>My Education</v-card-text>
+                        <v-card flat class="pa-3">
+                            <h1 class="text-xs-center mb-4">My Education</h1>
+                            <v-timeline>
+                                <v-timeline-item color="red lighten-2" large >
+                                    <span slot="opposite">December 2018</span>
+                                    <v-card class="elevation-2 pa-2">
+                                        <v-img src="./images/wsu_logo.png" max-height="50px" position="left center" contain></v-img>
+                                        <v-card-title class="headline">Bachelor of Science - Computer Science</v-card-title>
+                                        <v-card-text>
+                                            Completed a Bachelor's of Science in Computer Science with an Insititutional Honor of Summa Cum Laude - (Institutional GPA of 4.0 / 4.0)
+                                        </v-card-text>
+                                        <v-card-text>(Description of classes and projects ) </v-card-text>
+                                    </v-card>
+                                </v-timeline-item>
+                                <v-timeline-item color="red lighten-2" large >
+                                    <span slot="opposite">December 2010</span>
+                                    <v-card class="elevation-2 pa-2">
+                                        <v-img src="./images/wsu_logo.png" max-height="50px" position="left center" contain></v-img>
+                                        <v-card-title class="headline">Bachelor of Science - Automotive Technology / Technical Sales</v-card-title>
+                                        <v-card-text>
+                                            Completed a Bachelor's of Science with a double major in the fields of Automotive Technology and Technical Sales with an overall GPA of 3.84 / 4.0
+                                        </v-card-text>
+                                    </v-card>
+                                </v-timeline-item>
+                            </v-timeline>
                         </v-card>
                     </v-tab-item>
                     <v-tab-item
                             value="experience"
                     >
                         <v-card flat class="pa-3">
+                            <h1 class="text-xs-center mb-4">Recent Work Experience</h1>
                             <v-img src="./images/wsu_logo.png" max-height="50px" position="left center" contain></v-img>
                             <v-card-title primary-title class="text-xs-center">
                                 <div>
-                                    <h3 class="headline">Weber State University</h3>
+                                    <h3 class="headline">Research Center Program Coordinator</h3>
                                     <v-subheader>April 2010 to Present - Ogden, Utah</v-subheader>
                                 </div>
                             </v-card-title>
-                            <v-card-text>Projects</v-card-text>
+                            <h3 class="text-xs-center">Duties</h3>
+                            <v-card-text>As the program coordinator I manage the day to day activities at the center which includes hiring and managing student and full-time employees and coordinating their efforts on multiple projects.</v-card-text>
+                            <h3 class="text-xs-center">Current and Recent Projects</h3>
                             <v-expansion-panel>
                                 <v-expansion-panel-content >
                                     <div slot="header">ALBOP</div>
@@ -112,8 +121,9 @@
                     <v-tab-item
                             value="about"
                     >
-                        <v-card flat>
-                            <v-card-text>About Me</v-card-text>
+                        <v-card flat class="pa-3">
+                            <h1 class="text-xs-center mb-4">About Me</h1>
+                            <v-card-text>Interests</v-card-text>
                         </v-card>
                     </v-tab-item>
                 </v-tabs-items>
