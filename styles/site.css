@@ -1,0 +1,23 @@
+[v-cloak] {
+    display: none;
+}
+.loading {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.external {
+    text-decoration: none;
+}
+    .external:link {
+        color: #0096FB;
+    }
+    .external:visited {
+        color: blueviolet;
+    }
+    .external:hover {
+        color: #006FBA;
+    }
+    .external:active {
+        color: blue;
+    }

@@ -3,11 +3,16 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <link href="./styles/site.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta name="robots" content="noindex">
 </head>
 <body>
 <div id="app">
+    <div v-if="!$data" class="loading">
+        <h1>Loading...</h1>
+    </div>
+    <div v-cloak>
     <v-toolbar tabs dark color="blue-grey darken-3">
 
         <v-toolbar-title>Christopher Woodhave</v-toolbar-title>
@@ -38,6 +43,13 @@
                         <v-card flat class="pa-3">
                             <h1 class="text-xs-center mb-4">Home</h1>
                             <v-card-text>Home Tab stuff</v-card-text>
+                            <div >
+                                <v-progress-circular
+                                        :size="70"
+                                        color="green"
+                                        indeterminate
+                                ></v-progress-circular>
+                            </div>
                         </v-card>
                     </v-tab-item>
                     <v-tab-item
@@ -45,10 +57,33 @@
                     >
                         <v-card flat class="pa-3">
                             <h1 class="text-xs-center mb-4">Programming Skills</h1>
-                            <h3><v-icon>language</v-icon> Languages</h3>
-                            <v-card-text>Java</v-card-text>
-                            <h3><v-icon>computer</v-icon> Systems</h3>
-                            <v-card-text>Git</v-card-text>
+                            <v-container fluid grid-list-sm text-xs-center>
+                                <v-layout row wrap>
+                                    <v-flex xs5>
+                                        <h3><v-icon>language</v-icon> Languages</h3>
+                                        <v-container fluid grid-list-xs>
+                                            <v-layout row wrap>
+                                                <v-flex v-for="l in languages" xs3>
+                                                    {{ l }}
+                                                </v-flex>
+                                            </v-layout>
+                                        </v-container>
+                                    </v-flex>
+                                    <v-flex text-xs-center xs2>
+                                    <v-divider vertical ></v-divider>
+                                    </v-flex>
+                                    <v-flex xs5>
+                                        <h3><v-icon>computer</v-icon> Systems</h3>
+                                        <v-container fluid grid-list-xs>
+                                            <v-layout row wrap>
+                                                <v-flex v-for="s in systems" xs3>
+                                                    {{ s }}
+                                                </v-flex>
+                                            </v-layout>
+                                        </v-container>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
                         </v-card>
                     </v-tab-item>
                     <v-tab-item
@@ -63,9 +98,10 @@
                                         <v-img src="./images/wsu_logo.png" max-height="50px" position="left center" contain></v-img>
                                         <v-card-title class="headline">Bachelor of Science - Computer Science</v-card-title>
                                         <v-card-text>
-                                            Completed a Bachelor's of Science in Computer Science with an Insititutional Honor of Summa Cum Laude - (Institutional GPA of 4.0 / 4.0)
+                                            Completed a Bachelor's of Science in Computer Science with an Institutional Honor of Summa Cum Laude - (GPA of 4.0 / 4.0).
                                         </v-card-text>
-                                        <v-card-text>(Description of classes and projects ) </v-card-text>
+                                        <v-card-text>The CS degree at Weber covers all of the basics of computer science including: object oriented programming, database design, networking, computer architecture and the software engineering development process.</v-card-text>
+                                        <v-card-text>For my capstone project our group helped to develop an inventory management system for a local non-profit food bank.  The system allows users to track incoming and outgoing donations, along with the ability to query the database and print reports.</v-card-text>
                                     </v-card>
                                 </v-timeline-item>
                                 <v-timeline-item color="red lighten-2" large >
@@ -76,6 +112,7 @@
                                         <v-card-text>
                                             Completed a Bachelor's of Science with a double major in the fields of Automotive Technology and Technical Sales with an overall GPA of 3.84 / 4.0
                                         </v-card-text>
+                                        <v-card-text>The automotive aspect of this degree focused on field service management and fleet management while the technical sales portion covered the basics of public speaking, customer service and sales techniques</v-card-text>
                                     </v-card>
                                 </v-timeline-item>
                             </v-timeline>
@@ -94,25 +131,48 @@
                                 </div>
                             </v-card-title>
                             <h3 class="text-xs-center">Duties</h3>
-                            <v-card-text>As the program coordinator I manage the day to day activities at the center which includes hiring and managing student and full-time employees and coordinating their efforts on multiple projects.</v-card-text>
+                            <v-card-text>As the program coordinator I manage the day to day activities at the center which includes hiring and managing student and full-time employees and coordinating their efforts on multiple projects.
+                                I am also in charge of preparing and submitting proposals and reporting on the efforts made by myself and other center employees to the various state and federal agencies that supply center funding.</v-card-text>
+                            <v-card-text>Along with my main duties I have also been involved in the design, development, and administration of the software developed at the center.</v-card-text>
                             <h3 class="text-xs-center">Current and Recent Projects</h3>
-                            <v-expansion-panel>
+                            <v-expansion-panel focusable class="mt-2">
                                 <v-expansion-panel-content >
-                                    <div slot="header">ALBOP</div>
-                                    <v-card>
-                                        <v-card-text>Online web portal using Vue js and Nodejs/ Express</v-card-text>
+                                    <div slot="header"><h4>OBD Clearinghouse: <a href="https://www.obdclearinghouse.com" target="_blank" class="external">Website</a></h4></div>
+                                    <v-card class="mx-3">
+                                        <v-subheader>Background: </v-subheader>
+                                        <v-card-text>
+                                            The National On-Board Diagnostic (OBD) Clearinghouse is a website funded by the Environmental Protection Agency (EPA) to help facility communication between the state vehicle emissions (I/M) program administrators and vehicle manufacturers (OEMs).
+                                        </v-card-text>
+                                        <v-subheader>My Role: </v-subheader>
+                                        <v-card-text>
+                                            For this project I am mainly in charge of user administration of the site though I have also help with to code feature enhancements and bug fixes
+                                        </v-card-text>
                                     </v-card>
                                 </v-expansion-panel-content>
                                 <v-expansion-panel-content >
-                                    <div slot="header">OBD Clearinghouse</div>
-                                    <v-card>
-                                        <v-card-text>Java Project funded by EPA website: <a href="https://www.obdclearinghouse.com" target="_blank">OBD Clearinghouse</a></v-card-text>
+                                    <div slot="header"><h4>ALBOP - Asbestos/Lead-Based Paint Online Portal</h4></div>
+                                    <v-card class="mx-3">
+                                        <v-subheader>Background: </v-subheader>
+                                        <v-card-text>
+                                            The Asbestos and Lead-Based Paint Online Portal is a billing and tracking system that the Utah Department of Environmental Quality (DEQ) uses to track the proper removal and disposal of hazardous materials from constructions sites.
+                                        </v-card-text>
+                                        <v-subheader>My Role: </v-subheader>
+                                        <v-card-text>
+                                            During this project I have assisted with the front-end and back-end design and development including implementing the search and submission pages for several user-submitted forms.
+                                        </v-card-text>
                                     </v-card>
                                 </v-expansion-panel-content>
                                 <v-expansion-panel-content >
-                                    <div slot="header">Centralized I/M Reports Database</div>
-                                    <v-card>
-                                        <v-card-text>Centralized database for 5 emissions counties and Utah DMV</v-card-text>
+                                    <div slot="header"><h4>Centralized Vehicle Emissions Reports Database</h4></div>
+                                    <v-card class="mx-3">
+                                        <v-subheader>Background: </v-subheader>
+                                        <v-card-text>
+                                            In Utah, we have multiple emission programs that are each run by local health departments rather than one central state office. To help resolve some of the challenges this creates, a centralized database of all the emission records was created.
+                                        </v-card-text>
+                                        <v-subheader>My Role: </v-subheader>
+                                        <v-card-text>
+                                            During this project I have mainly been in charge of writing the queries that the I/M program administrators use to filter and search records. I also helped to design the form layouts and results pages for the queries.
+                                        </v-card-text>
                                     </v-card>
                                 </v-expansion-panel-content>
                             </v-expansion-panel>
@@ -130,6 +190,7 @@
             </v-container>
         </v-content>
     </v-app>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -146,6 +207,12 @@
                     { title: 'Education', tab: 'education'},
                     { title: 'Work Experience', tab: 'experience'},
                     { title: 'About Me', tab: 'about'}
+                ],
+                languages: [
+                    'Java', 'C#', 'C++', 'C', 'Javascript', 'HTML', 'CSS', 'PHP', 'Python', 'SQL', 'NoSQL'
+                ],
+                systems: [
+                    'MongoDB', 'PostgreSQL', 'Oracle SQL', 'Tomcat', 'NodeJS', 'Express', 'Vue', 'Vuetify', 'Bootstrap', 'Xamarin', 'ASP.NET Core', 'Git'
                 ]
             }
         }
