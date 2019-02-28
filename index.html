@@ -2,6 +2,7 @@
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
     <link href="./styles/site.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
@@ -22,6 +23,7 @@
                 v-model="tab"
                 color="teal lighten-2"
                 slider-color="amber"
+                v-if="$vuetify.breakpoint.smAndUp"
                 grow
         >
             <v-tab
@@ -32,16 +34,30 @@
                 {{ item.title }}
             </v-tab>
         </v-tabs>
+        <v-menu class="hidden-sm-and-up">
+            <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
+            <v-list>
+                <v-list-tile
+                        v-for="item in navbar"
+                        :key="item.tab"
+                        @click="tab = item.tab"
+                >
+                    <v-list-tile-content>
+                        <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </v-list>
+        </v-menu>
     </v-toolbar>
     <v-app>
         <v-content>
             <v-container>
                 <v-tabs-items v-model="tab">
                     <v-tab-item
-                            value="home"
+                            value="about"
                     >
                         <v-card flat class="pa-3">
-                            <h1 class="text-xs-center mb-4">Home</h1>
+                            <h1 class="text-xs-center mb-4">About Me</h1>
                             <v-card-text>Home Tab stuff</v-card-text>
                             <div >
                                 <v-progress-circular
@@ -49,6 +65,9 @@
                                         color="green"
                                         indeterminate
                                 ></v-progress-circular>
+                                <div>
+                                    <img src="https://icongr.am/devicon/android-original.svg?size=50">
+                                </div>
                             </div>
                         </v-card>
                     </v-tab-item>
@@ -59,12 +78,14 @@
                             <h1 class="text-xs-center mb-4">Programming Skills</h1>
                             <v-container fluid grid-list-sm text-xs-center>
                                 <v-layout row wrap>
-                                    <v-flex xs5>
+                                    <v-flex md5 xs12>
                                         <h3><v-icon>language</v-icon> Languages</h3>
                                         <v-container fluid grid-list-xs>
                                             <v-layout row wrap>
-                                                <v-flex v-for="l in languages" xs3>
-                                                    {{ l }}
+                                                <v-flex v-for="l in languages" class="text-xs-center" sm3 xs6>
+                                                    <v-img v-if="l.icon" :src="'https://icongr.am/devicon/' + l.icon + '.svg?size=50'" max-height="50px" contain></v-img>
+                                                    <v-img v-else :src="l.source" max-height="50px" contain></v-img>
+                                                    <p>{{ l.text }}</p>
                                                 </v-flex>
                                             </v-layout>
                                         </v-container>
@@ -72,12 +93,14 @@
                                     <v-flex text-xs-center xs2>
                                     <v-divider vertical ></v-divider>
                                     </v-flex>
-                                    <v-flex xs5>
+                                    <v-flex md5 xs12>
                                         <h3><v-icon>computer</v-icon> Systems</h3>
                                         <v-container fluid grid-list-xs>
                                             <v-layout row wrap>
-                                                <v-flex v-for="s in systems" xs3>
-                                                    {{ s }}
+                                                <v-flex v-for="s in systems" sm3 xs6>
+                                                    <v-img v-if="s.icon" :src="'https://icongr.am/devicon/' + s.icon + '.svg?size=50'" max-height="50px" contain></v-img>
+                                                    <v-img v-else :src="s.source" max-height="50px" contain></v-img>
+                                                    <p>{{ s.text }}</p>
                                                 </v-flex>
                                             </v-layout>
                                         </v-container>
@@ -130,15 +153,16 @@
                                     <v-subheader>April 2010 to Present - Ogden, Utah</v-subheader>
                                 </div>
                             </v-card-title>
-                            <h3 class="text-xs-center">Duties</h3>
-                            <v-card-text>As the program coordinator I manage the day to day activities at the center which includes hiring and managing student and full-time employees and coordinating their efforts on multiple projects.
+                            <h3 class="text-xs-center"><v-icon>fas fa-briefcase</v-icon> Duties</h3>
+                            <v-card-text class="px-5">As the program coordinator I manage the day to day activities at the center which includes hiring and managing student and full-time employees and coordinating their efforts on multiple projects.
                                 I am also in charge of preparing and submitting proposals and reporting on the efforts made by myself and other center employees to the various state and federal agencies that supply center funding.</v-card-text>
-                            <v-card-text>Along with my main duties I have also been involved in the design, development, and administration of the software developed at the center.</v-card-text>
-                            <h3 class="text-xs-center">Current and Recent Projects</h3>
+                            <v-card-text class="px-5 mb-4">Along with my main duties I have also been involved in the design, development, and administration of the software developed at the center.</v-card-text>
+                            <h3 class="text-xs-center"><v-icon>fas fa-project-diagram</v-icon> Current and Recent Projects</h3>
                             <v-expansion-panel focusable class="mt-2">
                                 <v-expansion-panel-content >
-                                    <div slot="header"><h4>OBD Clearinghouse: <a href="https://www.obdclearinghouse.com" target="_blank" class="external">Website</a></h4></div>
+                                    <div slot="header"><h4>OBD Clearinghouse</h4></div>
                                     <v-card class="mx-3">
+                                        <v-subheader>Website: &nbsp;<a href="https://www.obdclearinghouse.com" target="_blank" class="external">www.obdclearinghouse.com</a></v-subheader>
                                         <v-subheader>Background: </v-subheader>
                                         <v-card-text>
                                             The National On-Board Diagnostic (OBD) Clearinghouse is a website funded by the Environmental Protection Agency (EPA) to help facility communication between the state vehicle emissions (I/M) program administrators and vehicle manufacturers (OEMs).
@@ -167,7 +191,7 @@
                                     <v-card class="mx-3">
                                         <v-subheader>Background: </v-subheader>
                                         <v-card-text>
-                                            In Utah, we have multiple emission programs that are each run by local health departments rather than one central state office. To help resolve some of the challenges this creates, a centralized database of all the emission records was created.
+                                            In Utah, we have multiple emission programs that are each run by local health departments rather than one central state office. A centralized database of all the emission records was requested by the counties to help resolve some of the challenges that this creates.
                                         </v-card-text>
                                         <v-subheader>My Role: </v-subheader>
                                         <v-card-text>
@@ -178,14 +202,14 @@
                             </v-expansion-panel>
                         </v-card>
                     </v-tab-item>
-                    <v-tab-item
-                            value="about"
-                    >
-                        <v-card flat class="pa-3">
-                            <h1 class="text-xs-center mb-4">About Me</h1>
-                            <v-card-text>Interests</v-card-text>
-                        </v-card>
-                    </v-tab-item>
+                    <!--<v-tab-item-->
+                            <!--value="about"-->
+                    <!--&gt;-->
+                        <!--<v-card flat class="pa-3">-->
+                            <!--<h1 class="text-xs-center mb-4">About Me</h1>-->
+                            <!--<v-card-text>Interests</v-card-text>-->
+                        <!--</v-card>-->
+                    <!--</v-tab-item>-->
                 </v-tabs-items>
             </v-container>
         </v-content>
@@ -200,19 +224,24 @@
         el: '#app',
         data () {
             return {
-                tab: 'home',
+                tab: 'about',
                 navbar: [
-                    { title: 'Home', tab: 'home'},
+                    // { title: 'Home', tab: 'home'},
+                    { title: 'About Me', tab: 'about'},
                     { title: 'Skills', tab: 'skills'},
                     { title: 'Education', tab: 'education'},
-                    { title: 'Work Experience', tab: 'experience'},
-                    { title: 'About Me', tab: 'about'}
+                    { title: 'Work Experience', tab: 'experience'}
                 ],
                 languages: [
-                    'Java', 'C#', 'C++', 'C', 'Javascript', 'HTML', 'CSS', 'PHP', 'Python', 'SQL', 'NoSQL'
+                    { text: 'C#', icon: 'csharp-original' }, { text: 'C++', icon: 'cplusplus-original' }, { text: 'C', icon: 'c-original' }, { text: 'Java', icon: 'java-original' },
+                    { text: 'Javascript', icon: 'javascript-original' }, { text: 'HTML', icon: 'html5-original-wordmark' }, { text: 'CSS', icon: 'css3-original-wordmark' }, { text: 'PHP', icon: 'php-original' },
+                    { text: 'Python', icon: 'python-original' }, { text: 'SQL', icon: null, source: './images/sql_logo.png' }, { text: 'NoSQL', icon: 'mongodb-original' }
                 ],
                 systems: [
-                    'MongoDB', 'PostgreSQL', 'Oracle SQL', 'Tomcat', 'NodeJS', 'Express', 'Vue', 'Vuetify', 'Bootstrap', 'Xamarin', 'ASP.NET Core', 'Git'
+                    { text: 'MongoDB', icon: 'mongodb-original' }, { text: 'PostgreSQL', icon: 'postgresql-original' }, { text: 'Oracle SQL', icon: 'oracle-original' },
+                    { text: 'Tomcat', icon: 'tomcat-original' }, { text: 'NodeJS', icon: 'nodejs-original-wordmark' }, { text: 'Express', icon: 'express-original' }, { text: 'Vue & Vuetify', icon: 'vuejs-original' },
+                    { text: 'Bootstrap', icon: 'bootstrap-plain' },  { text: 'ASP.NET Core', icon: 'dot-net-original' }, { text: 'Xamarin', icon: null, source: './images/xamarin_logo.svg' },  { text: 'Git', icon: 'git-original' },
+                    { text: 'GitHub', icon: 'github-original' },  { text: 'Bitbucket', icon: 'bitbucket-original' }, { text: 'Visual Studio', icon: 'visualstudio-plain'}, { text: 'IntelliJ', icon: 'intellij-original'}
                 ]
             }
         }
