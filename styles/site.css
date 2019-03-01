@@ -6,6 +6,17 @@
     margin-top: 50px;
 }
 
+.content {
+    margin-top: 96px;
+    background: url("../images/blue_background.jpg") repeat;
+}
+
+.transparent {
+    background-color: transparent!important;
+    opacity: 0.65;
+    border-color: transparent!important;
+}
+
 .external {
     text-decoration: none;
 }
