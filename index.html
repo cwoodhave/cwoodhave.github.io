@@ -2,6 +2,7 @@
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
     <link href="./styles/site.css" rel="stylesheet">
@@ -76,7 +77,7 @@
                     >
                         <v-card flat class="pa-3">
                             <h1 class="text-xs-center mb-4">Programming Skills</h1>
-                            <v-container fluid grid-list-sm text-xs-center>
+                             <v-container fluid grid-list-sm text-xs-center>
                                 <v-layout row wrap>
                                     <v-flex md5 xs12>
                                         <h3><v-icon>language</v-icon> Languages</h3>
@@ -106,6 +107,11 @@
                                         </v-container>
                                     </v-flex>
                                 </v-layout>
+
+                                 <v-sheet class="pa-3" elevation="7">
+                                     <p style="font-family: 'Rubik' , serif">Over the course of my career, I have been able to gain experience in a number of different languages and software development systems.  I have had extensive experience in web programing languages including HTML, Javascript, and CSS.
+                                         I have also been able to gain substantial experience in C# and Java during my time at Weber State University with some minor experience in other languages.</p>
+                                 </v-sheet>
                             </v-container>
                         </v-card>
                     </v-tab-item>
@@ -153,12 +159,14 @@
                                     <v-subheader>April 2010 to Present - Ogden, Utah</v-subheader>
                                 </div>
                             </v-card-title>
-                            <h3 class="text-xs-center"><v-icon>fas fa-briefcase</v-icon> Duties</h3>
+                            <v-divider></v-divider>
+                            <h3 class="text-xs-center mt-3"><v-icon>fas fa-briefcase</v-icon> Duties</h3>
                             <v-card-text class="px-5">As the program coordinator I manage the day to day activities at the center which includes hiring and managing student and full-time employees and coordinating their efforts on multiple projects.
                                 I am also in charge of preparing and submitting proposals and reporting on the efforts made by myself and other center employees to the various state and federal agencies that supply center funding.</v-card-text>
-                            <v-card-text class="px-5 mb-4">Along with my main duties I have also been involved in the design, development, and administration of the software developed at the center.</v-card-text>
-                            <h3 class="text-xs-center"><v-icon>fas fa-project-diagram</v-icon> Current and Recent Projects</h3>
-                            <v-expansion-panel focusable class="mt-2">
+                            <v-card-text class="px-5 mb-3">Along with my main duties I have also been involved in the design, development, and administration of the software developed at the center.</v-card-text>
+                            <v-divider></v-divider>
+                            <h3 class="text-xs-center mt-3"><v-icon>fas fa-project-diagram</v-icon> Current and Recent Projects</h3>
+                            <v-expansion-panel focusable class="mt-2 elevation-7">
                                 <v-expansion-panel-content >
                                     <div slot="header"><h4>OBD Clearinghouse</h4></div>
                                     <v-card class="mx-3">
