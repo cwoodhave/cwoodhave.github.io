@@ -16,15 +16,15 @@
     <div v-cloak>
 
     <v-app>
-    <v-toolbar tabs dark fixed color="blue-grey darken-3" dense extended>
+    <v-toolbar tabs dark fixed color="#01141e" dense extended>
 
         <v-toolbar-title>Christopher Woodhave  <span class="font-weight-thin font-italic">Software Developer</span></v-toolbar-title>
         <v-spacer></v-spacer>
         <v-tabs
                 slot="extension"
                 v-model="tab"
-                color="teal lighten-2"
-                slider-color="amber"
+                color="#169cc1"
+                slider-color="#775d77"
                 v-if="$vuetify.breakpoint.smAndUp"
                 grow
         >
@@ -51,7 +51,7 @@
             </v-list>
         </v-menu>
     </v-toolbar>
-    <v-content class="content">
+    <v-content class="content subheading">
 
         <v-container>
 
@@ -60,20 +60,19 @@
                         value="about"
                 >
                     <v-card flat class="pa-3 mb-3">
-                        <h1 class="text-xs-center mb-4 display-2">Contact Information</h1>
-                        <h2 class="text-xs-center headline"><v-icon>email</v-icon> cwoodhave@gmail.com</h2>
+                        <h1 class="text-xs-center mb-4 display-2">Chris Woodhave</h1>
+                        <h2 class="text-xs-center headline"><v-icon>email</v-icon> cwoodhave@gmail.com &nbsp; <v-icon>phone</v-icon>(801) 660-9260</h2>
                     </v-card>
 
                     <v-card flat class="pa-3">
-                        <h1 class="text-xs-center mb-4 display-2">About Me</h1>
                         <v-container grid-list-xs>
                             <v-layout flex-child row>
                                 <v-flex xs10>
                                     <v-sheet
-                                            color="cyan lighten-5"
-                                            :class="[ $vuetify.breakpoint.smAndUp ? 'display-1' : 'subheading' , 'pa-4', 'mb-2']"
+                                            color="blue-grey lighten-5"
+                                            class="subheading pa-4 mb-2"
                                     >
-                                        <p class="font-weight-thin font-italic">Goals</p>
+                                        <p class="font-weight-thin font-italic headline">Objective</p>
                                         As a recent graduated from the Weber State University Computer Science Program, I am looking to begin applying a improving upon the skill set I have gained in my college courses and at my current position.
                                     </v-sheet>
                                 </v-flex>
@@ -81,10 +80,10 @@
                             <v-layout flex-child row>
                                 <v-flex xs10 offset-xs2>
                                     <v-sheet
-                                        color="lime lighten-5"
-                                        :class="[ $vuetify.breakpoint.smAndUp ? 'display-1' : 'subheading' , 'pa-4', 'mb-2']"
+                                        color="blue-grey lighten-5"
+                                        class="subheading pa-4 mb-2"
                                     >
-                                        <p class="font-weight-thin font-italic">Experience</p>
+                                        <p class="font-weight-thin font-italic headline">Experience</p>
                                         Over the course of my career, I have been able to gain experience in a number of different languages and software development systems.
                                         I have had extensive experience in web programing languages including HTML, Javascript, and CSS. I have also been able to gain substantial experience in C# and Java during my time at Weber State University with some minor experience in other languages.
                                     </v-sheet>
@@ -93,10 +92,10 @@
                             <v-layout flex-child row>
                                 <v-flex xs10>
                                     <v-sheet
-                                            color="red lighten-5"
-                                            :class="[ $vuetify.breakpoint.smAndUp ? 'display-1' : 'subheading' , 'pa-4', 'mb-2']"
+                                            color="blue-grey lighten-5"
+                                            class="subheading pa-4 mb-2"
                                     >
-                                        <p class="font-weight-thin font-italic">Interests</p>
+                                        <p class="font-weight-thin font-italic headline">Interests</p>
                                         In my personal time I enjoy outdoor activities such as hiking, cycling, and skiing.  I enjoy listening to and playing music on a number of different instruments.
                                         I also enjoy working with my hands and fixing things whether it be repairing vehicles, building and fixing computers, or making simple home repairs and improvements.
                                     </v-sheet>
@@ -114,7 +113,7 @@
                          <v-container fluid grid-list-sm text-xs-center>
                             <v-layout row wrap>
                                 <v-flex md5 xs12>
-                                    <h3><v-icon>language</v-icon> Languages</h3>
+                                    <h3 class="headline"><v-icon>language</v-icon> Languages</h3>
                                     <v-container fluid grid-list-xs>
                                         <v-layout row wrap>
                                             <v-flex v-for="l in languages" class="text-xs-center" sm3 xs6>
@@ -126,10 +125,10 @@
                                     </v-container>
                                 </v-flex>
                                 <v-flex text-xs-center md2 v-if="$vuetify.breakpoint.mdAndUp">
-                                <v-divider vertical ></v-divider>
+                                    <v-divider vertical ></v-divider>
                                 </v-flex>
                                 <v-flex md5 xs12>
-                                    <h3><v-icon>computer</v-icon> Systems</h3>
+                                    <h3 class="headline"><v-icon>computer</v-icon> Systems</h3>
                                     <v-container fluid grid-list-xs>
                                         <v-layout row wrap>
                                             <v-flex v-for="s in systems" sm3 xs6>
@@ -152,7 +151,7 @@
                         <v-timeline :dense="$vuetify.breakpoint.xsOnly">
                             <v-timeline-item color="red lighten-2" large >
                                 <span slot="opposite">December 2018</span>
-                                <v-card class="elevation-2 pa-2">
+                                <v-card class="elevation-2 pa-2 subheading">
                                     <v-img src="./images/wsu_logo.png" max-height="50px" position="left center" contain></v-img>
                                     <v-card-title class="headline">Bachelor of Science - Computer Science</v-card-title>
                                     <v-card-text>
@@ -164,7 +163,7 @@
                             </v-timeline-item>
                             <v-timeline-item color="red lighten-2" large >
                                 <span slot="opposite">December 2010</span>
-                                <v-card class="elevation-2 pa-2">
+                                <v-card class="elevation-2 pa-2 subheading">
                                     <v-img src="./images/wsu_logo.png" max-height="50px" position="left center" contain></v-img>
                                     <v-card-title class="headline">Bachelor of Science - Automotive Technology / Technical Sales</v-card-title>
                                     <v-card-text>
@@ -179,7 +178,7 @@
                 <v-tab-item
                         value="experience"
                 >
-                    <v-card flat class="pa-3">
+                    <v-card flat class="pa-3 subheading">
                         <h1 class="text-xs-center mb-4 display-2">Recent Work Experience</h1>
                         <v-img src="./images/wsu_logo.png" max-height="50px" position="left center" contain></v-img>
                         <v-card-title primary-title class="text-xs-center">
@@ -189,12 +188,25 @@
                             </div>
                         </v-card-title>
                         <v-divider></v-divider>
-                        <h3 class="text-xs-center mt-3"><v-icon>fas fa-briefcase</v-icon> Duties</h3>
-                        <v-card-text class="px-5">As the program coordinator I manage the day to day activities at the center which includes hiring and managing student and full-time employees and coordinating their efforts on multiple projects.
-                            I am also in charge of preparing and submitting proposals and reporting on the efforts made by myself and other center employees to the various state and federal agencies that supply center funding.</v-card-text>
-                        <v-card-text class="px-5 mb-3">Along with my main duties I have also been involved in the design, development, and administration of the software developed at the center.</v-card-text>
+                        <h3 class="text-xs-center mt-3 headline"><v-icon>fas fa-briefcase</v-icon> Duties</h3>
+                        <!--<v-card-text class="px-5">As the program coordinator I manage the day to day activities at the center which includes hiring and managing student and full-time employees and coordinating their efforts on multiple projects.-->
+                            <!--I am also in charge of preparing and submitting proposals and reporting on the efforts made by myself and other center employees to the various state and federal agencies that supply center funding.</v-card-text>-->
+                        <!--<v-card-text class="px-5 mb-3">Along with my main duties I have also been involved in the design, development, and administration of the software developed at the center.</v-card-text>-->
+                        <v-card-text class="px-5 mb-3">
+                            <ul>
+                                <li>Manage day to day activities at the center including hiring and managing student and full-time employees, coordinating their efforts on multiple projects.</li>
+                                <li>Research and develop training materials on current vehicle emissions control devices for technicians and state authorities across the country.</li>
+                                <li>Manage information gathering and analysis for research projects performed by the center.</li>
+                                <li>Resolve issues that arise for state emissions programs and technicians by contacting vehicle manufacturers and researching vehicle service information.</li>
+                                <li>Report to the US EPA as well as other state agencies on efforts made for each project.</li>
+                                <li>Prepare and submit proposals for projects and grants that fund all activities at the center.</li>
+                                <li>Design, develop, and maintain software and databases for web applications, phone applications and other programming projects.</li>
+                                <li>Administrate web applications and support clients and consumers of products produced by the center.</li>
+                                <li>Improve knowledge through University courses and seminars on latest technologies and modern implementation</li>
+                            </ul>
+                        </v-card-text>
                         <v-divider></v-divider>
-                        <h3 class="text-xs-center mt-3"><v-icon>fas fa-project-diagram</v-icon> Current and Recent Web Development Projects</h3>
+                        <h3 class="text-xs-center mt-3 headline"><v-icon>fas fa-project-diagram</v-icon> Current and Recent Web Development Projects</h3>
                         <v-expansion-panel focusable class="mt-2 elevation-7">
                             <v-expansion-panel-content >
                                 <div slot="header"><h4>OBD Clearinghouse</h4></div>
