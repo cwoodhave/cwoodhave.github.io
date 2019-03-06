@@ -16,7 +16,7 @@
     <div v-cloak>
 
     <v-app>
-    <v-toolbar tabs dark fixed color="#01141e" dense extended>
+    <v-toolbar tabs dark fixed color="#023351" dense extended>
 
         <v-toolbar-title>Christopher Woodhave  <span class="font-weight-thin font-italic">Software Developer</span></v-toolbar-title>
         <v-spacer></v-spacer>
@@ -24,7 +24,7 @@
                 slot="extension"
                 v-model="tab"
                 color="#169cc1"
-                slider-color="#775d77"
+                slider-color="#c14916"
                 v-if="$vuetify.breakpoint.smAndUp"
                 grow
         >
@@ -116,7 +116,36 @@
                                     <h3 class="headline"><v-icon>language</v-icon> Languages</h3>
                                     <v-container fluid grid-list-xs>
                                         <v-layout row wrap>
-                                            <v-flex v-for="l in languages" class="text-xs-center" sm3 xs6>
+                                            <v-flex xs12>
+                                                <h6 class="title font-weight-light font-italic text-xs-left pb-2"><v-icon color="yellow">star</v-icon><v-icon color="yellow">star</v-icon><v-icon color="yellow">star</v-icon>Most Experience</h6>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row wrap>
+                                            <v-flex v-for="l in languages.most" class="text-xs-center" sm3 xs6>
+                                                <v-img v-if="l.icon" :src="'https://icongr.am/devicon/' + l.icon + '.svg?size=50'" max-height="50px" contain></v-img>
+                                                <v-img v-else :src="l.source" max-height="50px" contain></v-img>
+                                                <p>{{ l.text }}</p>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row wrap>
+                                            <v-flex xs12>
+                                                <h6 class="title font-weight-light font-italic text-xs-left pb-2"><v-icon color="yellow">star</v-icon><v-icon color="yellow">star</v-icon>Moderate Experience</h6>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row wrap>
+                                            <v-flex v-for="l in languages.moderate" class="text-xs-center" sm3 xs6>
+                                                <v-img v-if="l.icon" :src="'https://icongr.am/devicon/' + l.icon + '.svg?size=50'" max-height="50px" contain></v-img>
+                                                <v-img v-else :src="l.source" max-height="50px" contain></v-img>
+                                                <p>{{ l.text }}</p>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row wrap>
+                                            <v-flex xs12>
+                                                <h6 class="title font-weight-light font-italic text-xs-left pb-2"><v-icon color="yellow">star</v-icon>Some Experience</h6>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row wrap>
+                                            <v-flex v-for="l in languages.some" class="text-xs-center" sm3 xs6>
                                                 <v-img v-if="l.icon" :src="'https://icongr.am/devicon/' + l.icon + '.svg?size=50'" max-height="50px" contain></v-img>
                                                 <v-img v-else :src="l.source" max-height="50px" contain></v-img>
                                                 <p>{{ l.text }}</p>
@@ -131,7 +160,36 @@
                                     <h3 class="headline"><v-icon>computer</v-icon> Systems</h3>
                                     <v-container fluid grid-list-xs>
                                         <v-layout row wrap>
-                                            <v-flex v-for="s in systems" sm3 xs6>
+                                            <v-flex xs12>
+                                                <h6 class="title font-weight-light font-italic text-xs-left pb-2"><v-icon color="yellow">star</v-icon><v-icon color="yellow">star</v-icon><v-icon color="yellow">star</v-icon>Most Experience</h6>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row wrap>
+                                            <v-flex v-for="s in systems.most" sm3 xs6>
+                                                <v-img v-if="s.icon" :src="'https://icongr.am/devicon/' + s.icon + '.svg?size=50'" max-height="50px" contain></v-img>
+                                                <v-img v-else :src="s.source" max-height="50px" contain></v-img>
+                                                <p>{{ s.text }}</p>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row wrap>
+                                            <v-flex xs12>
+                                                <h6 class="title font-weight-light font-italic text-xs-left pb-2"><v-icon color="yellow">star</v-icon><v-icon color="yellow">star</v-icon>Moderate Experience</h6>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row wrap>
+                                            <v-flex v-for="s in systems.moderate" sm3 xs6>
+                                                <v-img v-if="s.icon" :src="'https://icongr.am/devicon/' + s.icon + '.svg?size=50'" max-height="50px" contain></v-img>
+                                                <v-img v-else :src="s.source" max-height="50px" contain></v-img>
+                                                <p>{{ s.text }}</p>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row wrap>
+                                            <v-flex xs12>
+                                                <h6 class="title font-weight-light font-italic text-xs-left pb-2"><v-icon color="yellow">star</v-icon>Some Experience</h6>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row wrap>
+                                            <v-flex v-for="s in systems.some" sm3 xs6>
                                                 <v-img v-if="s.icon" :src="'https://icongr.am/devicon/' + s.icon + '.svg?size=50'" max-height="50px" contain></v-img>
                                                 <v-img v-else :src="s.source" max-height="50px" contain></v-img>
                                                 <p>{{ s.text }}</p>
@@ -149,7 +207,7 @@
                     <v-card flat class="pa-3">
                         <h1 class="text-xs-center mb-4 display-2">My Education</h1>
                         <v-timeline :dense="$vuetify.breakpoint.xsOnly">
-                            <v-timeline-item color="red lighten-2" large >
+                            <v-timeline-item color="#a9400b" large >
                                 <span slot="opposite">December 2018</span>
                                 <v-card class="elevation-2 pa-2 subheading">
                                     <v-img src="./images/wsu_logo.png" max-height="50px" position="left center" contain></v-img>
@@ -161,7 +219,7 @@
                                     <v-card-text>For my capstone project our group helped to develop an inventory management system for a local non-profit food bank.  The system allows users to track incoming and outgoing donations, along with the ability to query the database and print reports.</v-card-text>
                                 </v-card>
                             </v-timeline-item>
-                            <v-timeline-item color="red lighten-2" large >
+                            <v-timeline-item color="#a9400b" large >
                                 <span slot="opposite">December 2010</span>
                                 <v-card class="elevation-2 pa-2 subheading">
                                     <v-img src="./images/wsu_logo.png" max-height="50px" position="left center" contain></v-img>
@@ -272,17 +330,31 @@
                     { title: 'Education', tab: 'education'},
                     { title: 'Work Experience', tab: 'experience'}
                 ],
-                languages: [
-                    { text: 'C#', icon: 'csharp-original' }, { text: 'C++', icon: 'cplusplus-original' }, { text: 'C', icon: 'c-original' }, { text: 'Java', icon: 'java-original' },
-                    { text: 'Javascript', icon: 'javascript-original' }, { text: 'HTML', icon: 'html5-original-wordmark' }, { text: 'CSS', icon: 'css3-original-wordmark' }, { text: 'PHP', icon: 'php-original' },
-                    { text: 'Python', icon: 'python-original' }, { text: 'SQL', icon: null, source: './images/sql_logo.png' }, { text: 'NoSQL', icon: 'mongodb-original' }
-                ],
-                systems: [
-                    { text: 'MongoDB', icon: 'mongodb-original' }, { text: 'PostgreSQL', icon: 'postgresql-original' }, { text: 'Oracle SQL', icon: 'oracle-original' },
-                    { text: 'Tomcat', icon: 'tomcat-original' }, { text: 'NodeJS', icon: 'nodejs-original-wordmark' }, { text: 'Express', icon: 'express-original' }, { text: 'Vue & Vuetify', icon: 'vuejs-original' },
-                    { text: 'Bootstrap', icon: 'bootstrap-plain' },  { text: 'ASP.NET Core', icon: 'dot-net-original' }, { text: 'Xamarin', icon: null, source: './images/xamarin_logo.svg' },  { text: 'Git', icon: 'git-original' },
-                    { text: 'GitHub', icon: 'github-original' },  { text: 'Bitbucket', icon: 'bitbucket-original' }, { text: 'Visual Studio', icon: 'visualstudio-plain'}, { text: 'IntelliJ', icon: 'intellij-original'}
-                ]
+                languages: {
+                    most: [
+                        { text: 'C#', icon: 'csharp-original' }, { text: 'Javascript', icon: 'javascript-original' }, { text: 'HTML', icon: 'html5-original-wordmark' }, { text: 'CSS', icon: 'css3-original-wordmark' },
+                        { text: 'SQL', icon: null, source: './images/sql_logo.png' }
+                    ],
+                    moderate: [
+                        { text: 'Java', icon: 'java-original' }, { text: 'C++', icon: 'cplusplus-original' }, { text: 'NoSQL', icon: 'mongodb-original' }
+                    ],
+                    some: [
+                         { text: 'C', icon: 'c-original' }, { text: 'PHP', icon: 'php-original' }, { text: 'Python', icon: 'python-original' }
+                    ]
+                },
+                systems: {
+                    most: [
+                        { text: 'PostgreSQL', icon: 'postgresql-original' }, { text: 'NodeJS', icon: 'nodejs-original-wordmark' }, { text: 'Express', icon: 'express-original' }, { text: 'Vue & Vuetify', icon: 'vuejs-original' },
+                        { text: 'Bootstrap', icon: 'bootstrap-plain' }, { text: 'Visual Studio', icon: 'visualstudio-plain'}, { text: 'IntelliJ', icon: 'intellij-original'}
+                    ],
+                    moderate: [
+                        { text: 'MongoDB', icon: 'mongodb-original' }, { text: 'Oracle SQL', icon: 'oracle-original' }, { text: 'ASP.NET Core', icon: 'dot-net-original' }, { text: 'Git', icon: 'git-original' },
+                        { text: 'GitHub', icon: 'github-original' },  { text: 'Bitbucket', icon: 'bitbucket-original' },
+                    ],
+                    some: [
+                        { text: 'Tomcat', icon: 'tomcat-original' }, { text: 'Xamarin', icon: null, source: './images/xamarin_logo.svg' }
+                    ]
+                }
             }
         }
     })
